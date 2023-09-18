@@ -2,6 +2,16 @@
 const processQueue = [];
 const queueElement = document.getElementById('queue');
 
+// Función para hacer scroll hacia abajo del contenedor
+function scrollToBottom(containerElement) {
+    containerElement.scrollTop = containerElement.scrollHeight;
+}
+
+// Función para hacer scroll hacia arriba del contenedor
+function scrollToTop(containerElement) {
+    containerElement.scrollTop = 0;
+}
+
 // Función para agregar un proceso a la cola
 function addProcess() {
     const processId = generateUniqueId();
@@ -14,6 +24,8 @@ function addProcess() {
     processElement.innerHTML = `<i class="${randomIcon}"></i><span>${processId}</span>`;
 
     queueElement.appendChild(processElement);
+
+    scrollToBottom(queueElement); // Hacer scroll hacia abajo después de agregar
 }
 
 // Función para ejecutar un proceso de la cola
@@ -27,6 +39,7 @@ function executeProcess() {
 
     if (executedProcessElement) {
         executedProcessElement.remove();
+        scrollToTop(queueElement); // Hacer scroll hacia arriba después de eliminar
     }
 }
 
@@ -57,7 +70,6 @@ function getRandomIcon() {
         'fas fa-database',
         'fas fa-server',
         'fas fa-cloud',
-
     ];
     const randomIndex = Math.floor(Math.random() * icons.length);
     return icons[randomIndex];
