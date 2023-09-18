@@ -21,7 +21,7 @@ function addProcess() {
     processElement.classList.add('process');
     processElement.setAttribute('data-id', processId);
     const randomIcon = getRandomIcon();
-    processElement.innerHTML = `<i class="${randomIcon}"></i><span>${processId}</span>`;
+    processElement.innerHTML = `<i class="${randomIcon}"></i><p class="process-id">${processId}</p>`;
 
     queueElement.appendChild(processElement);
 
