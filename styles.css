@@ -102,7 +102,7 @@ button:hover {
   width: 100%;
   overflow-y: auto;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(120px, 0fr));
   grid-gap: 20px;
   justify-content: center;
   padding: 20px 0;
@@ -110,19 +110,15 @@ button:hover {
   scroll-behavior: smooth;
 }
 
-/* Estilos para la barra de desplazamiento */
+/* Ocultar el scrollbar */
 .queue-container::-webkit-scrollbar {
-  width: 8px;
-  background-color: transparent;
-}
-
-.queue-container::-webkit-scrollbar-thumb {
-  background-color: white;
-  border-radius: 4px;
-}
-
-.queue-container::-webkit-scrollbar-track {
+  width: 0 !important;
   background: transparent;
+}
+
+/* Ocultar el scrollbar en Firefox */
+.queue-container {
+  scrollbar-width: none;
 }
 
 /* Estilos para los procesos en la cola */
